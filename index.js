@@ -20,12 +20,12 @@ function main(repoUrl, opts) {
     obj.user = shorthand[1]
     obj.repo = shorthand[2]
     obj.branch = shorthand[3] || 'master'
-    obj.host = 'git.code.tencent.com'
+    obj.host = 'gitee.com'
   } else if (antiquated) {
     obj.user = antiquated[1]
     obj.repo = antiquated[2].replace(/\.git$/i, '')
     obj.branch = 'master'
-    obj.host = 'git.code.tencent.com'
+    obj.host = 'gitee.com'
   } else {
     // Turn git+http URLs into http URLs
     repoUrl = repoUrl.replace(/^git\+/, '')
@@ -34,7 +34,7 @@ function main(repoUrl, opts) {
 
     const [, hostname, pathname] = repoUrl.match(laxUrlRegex) || []
     if (!hostname) return null
-    if (hostname !== 'git.code.tencent.com' && !opts.enterprise) return null
+    if (hostname !== 'gitee.com' && !opts.enterprise) return null
 
     const parts = pathname.match(/^\/([\w-_]+)\/([\w-_\.]+)(\/tree\/[%\w-_\.\/]+)?(\/blob\/[%\w-_\.\/]+)?/);
     // ([\w-_\.]+)
@@ -42,7 +42,7 @@ function main(repoUrl, opts) {
     obj.user = parts[1]
     obj.repo = parts[2].replace(/\.git$/i, '')
 
-    obj.host = hostname || 'git.code.tencent.com'
+    obj.host = hostname || 'gitee.com'
 
     if (parts[3] && /^\/tree\/master\//.test(parts[3])) {
       obj.branch = 'master'
@@ -63,10 +63,10 @@ function main(repoUrl, opts) {
 
   if (obj.branch === 'master') {
     obj.https_url = `https://${obj.host}/${obj.user}/${obj.repo}`
-    obj.zip_url = `https://${obj.host}/${obj.user}/${obj.repo}/-/repository/archive.zip`
+    obj.zip_url = `https://${obj.host}/${obj.user}/${obj.repo}/repository/archive/${obj.branch}.zip`
   } else {
-    obj.https_url = `https://${obj.host}/${obj.user}/${obj.repo}/blob/${obj.branch}`
-    obj.zip_url = `https://${obj.host}/${obj.user}/${obj.repo}/-/repository/archive.zip?ref=${obj.branch}`
+    obj.https_url = `https://${obj.host}/${obj.user}/${obj.repo}/tree/${obj.branch}`
+    obj.zip_url = `https://${obj.host}/${obj.user}/${obj.repo}/repository/archive/${obj.branch}.zip`
   }
 
   // Support deep paths (like lerna-style repos)

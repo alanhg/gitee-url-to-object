@@ -1,7 +1,7 @@
-> 提供类github-url-to-object能力，服务腾讯工蜂
+> 提供类github-url-to-object能力，服务于Gitee（码云）
 
 ## Install
 
 ```shell
-npm i tgit-url-to-object
+npm i gitee-url-to-object
 ```

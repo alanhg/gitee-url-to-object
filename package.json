@@ -1,5 +1,5 @@
 {
-  "name": "tgit-url-to-object",
+  "name": "gitee-url-to-object",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alanhg/tgit-url-to-object.git"
+    "url": "git+https://github.com/alanhg/gitee-url-to-object.git"
   },
   "author": "Alan He",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alanhg/tgit-url-to-object/issues"
+    "url": "https://github.com/alanhg/gitee-url-to-object/issues"
   },
-  "homepage": "https://github.com/alanhg/tgit-url-to-object#readme",
+  "homepage": "https://github.com/alanhg/gitee-url-to-object#readme",
   "dependencies": {
     "is-url": "^1.1.0"
   },
