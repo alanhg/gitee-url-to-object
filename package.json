@@ -1,0 +1,31 @@
+{
+  "name": "tgit-url-to-object",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanhg/tgit-url-to-object.git"
+  },
+  "author": "Alan He",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alanhg/tgit-url-to-object/issues"
+  },
+  "homepage": "https://github.com/alanhg/tgit-url-to-object#readme",
+  "dependencies": {
+    "is-url": "^1.1.0"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/test/**/*.js?(x)"
+    ]
+  }
+}
